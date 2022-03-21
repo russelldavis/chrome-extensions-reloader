@@ -1,6 +1,6 @@
 {
 	"name": "Extensions Reloader",
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"version": "1.15",
 	"icons": {
 		"16": "icon16.png",
@@ -8,10 +8,10 @@
 		"128": "icon128.png"
 	},
 	"background": {
-		"page": "background.html"
+		"service_worker": "background.js"
 	},
 	"commands": {
-      "reload": {
+      "_execute_action": {
          "description": "Reload all extensions in development",
          "suggested_key": {
             "default": "Alt+Shift+R"
@@ -19,18 +19,14 @@
       }
    },
    "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
+    "page": "options.html"
   },
 	"permissions": [
 		"tabs",
 		"management",
-		"storage",
-		"webRequest",
-		"webRequestBlocking",
-		"http://reload.extensions/"
+		"storage"
 	],
-	"browser_action": {
+	"action": {
 		"default_icon": "icon19.png",
 		"default_title": "Reload Extensions"
 	},
